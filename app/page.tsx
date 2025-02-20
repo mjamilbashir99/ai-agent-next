@@ -32,6 +32,8 @@ export default function Home() {
           {session ? (
             <div className="flex flex-col items-center gap-4">
               <p>Welcome, {session.user?.name}!</p>
+              <p>Email: {session.user?.email}</p>
+              <p>Access Token: {session.accessToken}</p>
               <button
                 className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
                 onClick={() => signOut()}

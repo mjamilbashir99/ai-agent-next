@@ -4,19 +4,29 @@ import Twitter from "next-auth/providers/twitter";
 export const authConfig: AuthOptions = {
   providers: [
     Twitter({
-      clientId: process.env.TWITTER_CLIENT_ID!,
-      clientSecret: process.env.TWITTER_CLIENT_SECRET!,
+      clientId: "UFFJb21fVnFKb2hRdGF4UEFNemc6MTpjaQ",
+      clientSecret: "rB8Cdbl5Bpu75JKbNi-g1Ox0yg3TTj3a_4P6vCTY2stFsfkaFt",
       version: "2.0",
     }),
   ],
+  secret: "3981af3191e9123cf85aafa8cc7ad0be6005413568343dd914a6ef4908d47866",
+  debug: true,
   pages: {
     signIn: "/auth/signin",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, account, profile }) {
+      // Persist the OAuth access_token and email to the token right after signin
+      if (account) {
+        token.accessToken = account.access_token;
+        token.email = profile?.email;
+      }
       return token;
     },
     async session({ session, token }) {
+      // Send properties to the client
+      session.accessToken = token.accessToken;
+      session.user.email = token.email;
       return session;
     },
   },
