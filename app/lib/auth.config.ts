@@ -11,23 +11,12 @@ export const authConfig: AuthOptions = {
   ],
   secret: "3981af3191e9123cf85aafa8cc7ad0be6005413568343dd914a6ef4908d47866",
   debug: true,
-  pages: {
-    signIn: "/auth/signin",
-  },
   callbacks: {
-    async jwt({ token, account, profile }) {
-      // Persist the OAuth access_token and email to the token right after signin
-      if (account) {
-        token.accessToken = account.access_token;
-        token.email = profile?.email;
-      }
+    async jwt({ token, user }) {
       return token;
     },
     async session({ session, token }) {
-      // Send properties to the client
-      session.accessToken = token.accessToken;
-      session.user.email = token.email;
       return session;
     },
   },
-}; 
+};
