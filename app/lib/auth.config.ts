@@ -19,8 +19,10 @@ interface ExtendedSession extends DefaultSession {
 export const authConfig: AuthOptions = {
   providers: [
     Twitter({
-      clientId: "QnE5UGtyZHBSbzV4ZGNqLWpqV1o6MTpjaQ",
-      clientSecret: "18oRqU7rXotoNEmlV6d-5JKwFWoyA75tHSh9DgeccEeMl6PEQw",
+      // clientId: "QnE5UGtyZHBSbzV4ZGNqLWpqV1o6MTpjaQ",
+      // clientSecret: "18oRqU7rXotoNEmlV6d-5JKwFWoyA75tHSh9DgeccEeMl6PEQw",
+      clientId: process.env.TWITTER_CLIENT_ID!,
+      clientSecret: process.env.TWITTER_CLIENT_SECRET!,
       version: "2.0",
       authorization: {
         params: {
