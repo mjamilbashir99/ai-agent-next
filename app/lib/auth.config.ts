@@ -19,8 +19,8 @@ interface ExtendedSession extends DefaultSession {
 export const authConfig: AuthOptions = {
   providers: [
     Twitter({
-      clientId: "UFFJb21fVnFKb2hRdGF4UEFNemc6MTpjaQ",
-      clientSecret: "rB8Cdbl5Bpu75JKbNi-g1Ox0yg3TTj3a_4P6vCTY2stFsfkaFt",
+      clientId: "QnE5UGtyZHBSbzV4ZGNqLWpqV1o6MTpjaQ",
+      clientSecret: "18oRqU7rXotoNEmlV6d-5JKwFWoyA75tHSh9DgeccEeMl6PEQw",
       version: "2.0",
       authorization: {
         params: {
@@ -29,7 +29,7 @@ export const authConfig: AuthOptions = {
       },
     }),
   ],
-  secret: "3981af3191e9123cf85aafa8cc7ad0be6005413568343dd914a6ef4908d47866",
+  secret: "f13b18ca71e997bfcf1507ec27da005fa2f0d952b9f87be16fdce32e4e1a8579",
   debug: true,
   callbacks: {
     async jwt({ token, account, user, profile }) {
